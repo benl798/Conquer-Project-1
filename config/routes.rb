@@ -1,7 +1,27 @@
 Rails.application.routes.draw do
+
+
   root to: 'users#index'
   # get '/users/new' => 'users#new'
   # post '/users' => 'users#create'
+
+  # Session routes:
+  get  '/login' => 'session#new'     # login form
+
+  # form submits here, do authentication & create session & redirect, or show form with errors
+  post '/login' => 'session#create'
+
+  delete '/login' => 'session#destroy'  # logout, i.e. delete session for this user
+
+
+
+  # Users CRUD
   resources :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  # Workouts CRUD
+  resources :workouts
+
+  # Exercises CRUD
+  resources :exercises
+
 end
