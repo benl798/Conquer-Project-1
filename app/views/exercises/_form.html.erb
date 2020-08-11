@@ -1,0 +1,32 @@
+<%= form_for @exercise do |f| %>
+
+<%= f.label :name %><br>
+  <%= f.text_field :name %>
+  <br>
+
+<%= f.label :image, 'Image URL' %><br>
+  <%= f.text_field :image %>
+  <br>
+
+<%= f.label :descript %><br>
+  <%= f.text_field :descript %>
+  <br>
+
+<%= f.label :link %><br>
+  <%= f.text_field :link %>
+  <br>
+
+<%= f.label :reps %><br>
+  <%= f.text_field :reps %>
+  <br>
+
+<%= f.label :tips %><br>
+  <%= f.text_field :tips %>
+  <br>
+
+  <br>
+  <br>
+
+  <%= f.submit %>
+
+<% end %>

@@ -1,10 +1,13 @@
 class ExercisesController < ApplicationController
+
+  # CREATE ############################################
   def new
     @exercise = Exercise.new
   end
 
   def create
-    @exercises = Exercise.create exercise_params
+    Exercise.create exercise_params
+    redirect_to exercises_path
   end
 
   # READ ###########################################
@@ -17,12 +20,28 @@ class ExercisesController < ApplicationController
     @exercise = Exercise.find params[:id]
   end
 
+  # UPDATE ####################################
+
   def edit
+    @exercise = Exercise.find params[:id]
   end
 
   def update
+    exercise = Exercise.find params[:id]
+    exercise.update exercise_params
+
+    redirect_to exercises_path
   end
 
   def destroy
+    Exercise.destroy params[:id]
+    redirect_to exercises_path
   end
+
+  private
+
+  def exercise_params
+   params.require( :exercise ).permit( :name, :image, :descript, :link, :reps, :tips )
+  end
+
 end
