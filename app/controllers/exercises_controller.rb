@@ -19,7 +19,7 @@ before_action :check_if_logged_in, except: [ :index, :show ]
       @exercise.image = response['public_id']
     end
 
-    # @exercise.user_id = @current_user.id
+    @exercise.user_id = @current_user.id
     @exercise.save
 
     redirect_to exercises_path
@@ -39,7 +39,6 @@ before_action :check_if_logged_in, except: [ :index, :show ]
 
   def edit
     @exercise = Exercise.find params[:id]
-
     redirect_to exercises_path unless @exercise.user == @current_user
   end
 

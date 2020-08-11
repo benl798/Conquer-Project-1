@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  has_many :exercises
+
   has_secure_password # includes some password validation
 
   # When creating a User, the 'name' field must be present, i.e. not blank
