@@ -1,0 +1,21 @@
+<%= form_for @workout do |f| %>
+
+<%= f.label :workout_type %><br>
+  <%= f.text_field :workout_type %>
+  <br>
+
+<%= f.label :image, 'Image URL' %><br>
+  <%= f.text_field :image %>
+  <br>
+
+<%= f.label :description %><br>
+  <%= f.text_field :description %>
+  <br>
+
+
+  <br>
+  <br>
+
+  <%= f.submit %>
+
+<% end %>

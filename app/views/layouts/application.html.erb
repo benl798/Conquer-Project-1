@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+
+    <%= cloudinary_js_config %>
   </head>
 
   <body>
@@ -14,6 +16,12 @@
           <%= link_to 'User Home', users_path %>
           |
           <%= link_to 'Add Account ', new_user_path %>
+      </nav>
+
+      <nav>
+          <%= link_to 'Workout Home', workouts_path %>
+          |
+          <%= link_to 'Add Workout ', new_workout_path %>
       </nav>
 
       <nav>

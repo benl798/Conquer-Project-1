@@ -24,6 +24,6 @@
   <strong>Additional Tips:</strong> <%= @exercise.tips %>
 </p>
 
-<% if @exercise.image.present? %>
-  <%= image_tag @exercise.image, alt: @exercise.name, class: 'exdercise' %>
-<% end %>
+
+
+<%= cl_image_tag @exercise.image %>

@@ -1,2 +1,18 @@
-<h1>Workouts#show</h1>
-<p>Find me in app/views/workouts/show.html.erb</p>
+<h2> <%= @workout.workout_type %> </h2>
+
+<%= link_to 'Edit Workout', edit_workout_path(@workout.id) %>
+|
+<%= link_to 'Delete Workout', workout_path(@workout.id), method: 'delete' %>
+
+<p>
+  <strong>Name:</strong> <%= @workout.workout_type %>
+</p>
+
+<p>
+  <strong>Description:</strong> <%= @workout.description %>
+</p>
+
+
+<% if @workout.image.present? %>
+  <%= image_tag @workout.image, alt: @workout.workout_type, class: 'workout' %>
+<% end %>

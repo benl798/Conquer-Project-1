@@ -1,2 +1,8 @@
-<h1>Workouts#index</h1>
-<p>Find me in app/views/workouts/index.html.erb</p>
+<h2>All Workouts</h2>
+<ul>
+  <% @workouts.each do |workout| %>
+  <li>
+    <%= link_to workout.workout_type, workout_path(workout.id) %>
+  </li>
+  <% end %>
+</ul>
