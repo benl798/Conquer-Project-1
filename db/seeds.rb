@@ -61,6 +61,7 @@ w2 = Workout.create!(
 puts "Created #{ Workout.count } workouts:"
 
 print "Creating Exercises..."
+
 Exercise.destroy_all
 
 e1 = Exercise.create!(

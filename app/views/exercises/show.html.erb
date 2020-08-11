@@ -1,0 +1,29 @@
+<h2> <%= @exercise.name %> </h2>
+
+<%= link_to 'Edit Exercise', edit_exercise_path(@exercise.id) %>
+|
+<%= link_to 'Delete Exercise', exercise_path(@exercise.id), method: 'delete' %>
+
+<p>
+  <strong>Name:</strong> <%= @exercise.name %>
+</p>
+
+<p>
+  <strong>Description:</strong> <%= @exercise.descript %>
+</p>
+
+<p>
+  <strong>Link:</strong> <%= @exercise.link %>
+</p>
+
+<p>
+  <strong>Reps:</strong> <%= @exercise.reps %>
+</p>
+
+<p>
+  <strong>Additional Tips:</strong> <%= @exercise.tips %>
+</p>
+
+<% if @exercise.image.present? %>
+  <%= image_tag @exercise.image, alt: @exercise.name, class: 'exdercise' %>
+<% end %>
