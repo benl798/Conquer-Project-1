@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :exercises
+  has_many :workouts
 
   has_secure_password # includes some password validation
 
