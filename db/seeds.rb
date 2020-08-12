@@ -111,3 +111,11 @@ e5 = Exercise.create!(
 
 
 puts "Created #{ Exercise.count } exercises:"
+
+# Workouts <-> Exercises many-to-many associations
+w1.exercises << e2 << e4 << e5
+w2.exercises << e1 << e2 << e3 << e4
+
+puts "Testing workout associations:"
+print "The workout '#{ w1.workout_type }' has exercises: "
+puts w1.exercises.pluck(:name).join(', ')

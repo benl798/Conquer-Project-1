@@ -14,6 +14,10 @@
   <strong>Description:</strong> <%= @workout.description %>
 </p>
 
+<% @workout.exercises.each do |exercise| %>
+<h5><%= exercise.name %></h5>
+<% end %>
+
 
 <% if @workout.image.present? %>
   <%= cl_image_tag @workout.image, alt: @workout.workout_type, class: 'workout' %>
