@@ -20,7 +20,7 @@ class SessionController < ApplicationController
       # same server (in a request header). I.e., we can remembered that we have logged in.
       session[:user_id] = user.id
 
-      redirect_to users_path
+      redirect_to workouts_path
 
     else
       # Either the user was nil (no such email address), or the password didn't match:

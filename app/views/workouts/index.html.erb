@@ -3,6 +3,9 @@
   <% @workouts.each do |workout| %>
   <li>
     <%= link_to workout.workout_type, workout_path(workout.id) %>
+    <% if workout.image.present? %>
+      <%= cl_image_tag workout.image, alt: workout.workout_type, class: 'workout' %>
+    <% end %>
   </li>
   <% end %>
 </ul>

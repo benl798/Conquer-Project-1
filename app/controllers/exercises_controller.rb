@@ -1,6 +1,6 @@
 class ExercisesController < ApplicationController
 
-before_action :check_if_logged_in, except: [ :index, :show ]
+before_action :check_if_logged_in 
 
   # CREATE ############################################
   def new

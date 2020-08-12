@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :check_if_logged_in, except: [:new]
   # CREATE ###########################
 
     # 1. Blank form

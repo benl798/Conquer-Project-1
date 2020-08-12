@@ -16,9 +16,14 @@
 
 <% @workout.exercises.each do |exercise| %>
 <h5><%= exercise.name %></h5>
-<% end %>
+
+<h5>Image: <br><br><%= cl_image_tag exercise.image %></h5>
+
+<h5>Description: <br><br><%= exercise.descript %></h5>
+<h5>Link: <br><br><a href="<%= exercise.link %>">gjgjkkd</a></h5>
 
 
-<% if @workout.image.present? %>
-  <%= cl_image_tag @workout.image, alt: @workout.workout_type, class: 'workout' %>
+<h5>Reps: <br><br><%= exercise.reps %></h5>
+<h5>Additional tips: <br><br><%= exercise.tips %></h5>
+
 <% end %>
