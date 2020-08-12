@@ -15,11 +15,11 @@ before_action :check_if_logged_in, except: [ :index, :show ]
     if params[:file].present?
       # Actually forward uploaded file on to Cloudinary server
       response = Cloudinary::Uploader.upload params[:file]
-
       @exercise.image = response['public_id']
     end
 
     @exercise.user_id = @current_user.id
+
     @exercise.save
 
     redirect_to exercises_path

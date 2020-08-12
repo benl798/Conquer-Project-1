@@ -35,3 +35,7 @@
 <p>
   <strong>Target Weight (kgs):</strong> <%= @user.target_weight %>
 </p>
+
+<% if @user.image.present? %>
+  <%= cl_image_tag @user.image, alt: @user.name, class: 'user' %>
+<% end %>

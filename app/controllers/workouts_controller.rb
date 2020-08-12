@@ -1,13 +1,29 @@
 class WorkoutsController < ApplicationController
 
+before_action :check_if_logged_in, except: [ :index, :show ]
   # CREATE ############################################
   def new
     @workout = Workout.new
   end
 
   def create
-    Workout.create workout_params
+
+    @workout = Workout.new workout_params
+
+    # Handle upload, if file was uploaded
+    if params[:file].present?
+      # Actually forward uploaded file on to Cloudinary server
+      response = Cloudinary::Uploader.upload params[:file]
+      @workout.image = response['public_id']
+    end
+
+    @workout.user_id = @current_user.id
+
+    @workout.save
+
     redirect_to workouts_path
+
+
   end
 
   # READ ################################
@@ -23,6 +39,7 @@ class WorkoutsController < ApplicationController
 
   def edit
     @workout = Workout.find params[:id]
+    redirect_to exercises_path unless @workout.user == @current_user
   end
 
   def update

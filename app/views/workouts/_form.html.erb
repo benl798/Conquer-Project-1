@@ -1,11 +1,14 @@
-<%= form_for @workout do |f| %>
+<%= form_for @workout, html: {multipart: true} do |f| %>
 
 <%= f.label :workout_type %><br>
   <%= f.text_field :workout_type %>
   <br>
 
 <%= f.label :image, 'Image URL' %><br>
-  <%= f.text_field :image %>
+  <!--<%= f.text_field :image %>-->
+  <br>
+
+  <%= f.cl_image_upload :image %>
   <br>
 
 <%= f.label :description %><br>

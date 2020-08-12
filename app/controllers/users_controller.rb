@@ -8,7 +8,16 @@ class UsersController < ApplicationController
 
     # 2. Form submit, create, redirect
     def create
-      @user = User.create user_params
+      @user = User.new user_params
+
+      # Handle upload, if file was uploaded
+      if params[:file].present?
+        # Actually forward uploaded file on to Cloudinary server
+        response = Cloudinary::Uploader.upload params[:file]
+        @user.image = response['public_id']
+      end
+
+      @user.save
 
       # Check whether the above create was successful i.e created a row in the users table i.e the object has an ID or if it failed due to a data validation error
       if @user.persisted?
@@ -19,6 +28,8 @@ class UsersController < ApplicationController
         # show the form again directly, no re-direct. This lets us use the failed @user create object in our template form_for, which gives us access to the validation error messages, and also causes the already submitted fields of the form to be re-populated for the user
         render :new
       end
+
+
     end # create
 
     # READ #############################

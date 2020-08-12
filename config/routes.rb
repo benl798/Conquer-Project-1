@@ -1,13 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'exercises/new'
-  get 'exercises/create'
-  get 'exercises/index'
-  get 'exercises/show'
-  get 'exercises/edit'
-  get 'exercises/update'
-  get 'exercises/destroy'
+  
   root to: 'users#index'
   # get '/users/new' => 'users#new'
   # post '/users' => 'users#create'

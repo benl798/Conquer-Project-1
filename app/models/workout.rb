@@ -1,4 +1,4 @@
 class Workout < ApplicationRecord
-  has_many :exercises
-  belongs_to :users, optional: true
+  has_and_belongs_to_many :exercises
+  belongs_to :user, optional: true
 end

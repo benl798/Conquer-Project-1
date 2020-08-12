@@ -1,8 +1,10 @@
 <h2> <%= @workout.workout_type %> </h2>
 
+<% if @current_user.present? && @workout.user_id == @current_user.id %>
 <%= link_to 'Edit Workout', edit_workout_path(@workout.id) %>
 |
 <%= link_to 'Delete Workout', workout_path(@workout.id), method: 'delete' %>
+<% end %>
 
 <p>
   <strong>Name:</strong> <%= @workout.workout_type %>
@@ -14,5 +16,5 @@
 
 
 <% if @workout.image.present? %>
-  <%= image_tag @workout.image, alt: @workout.workout_type, class: 'workout' %>
+  <%= cl_image_tag @workout.image, alt: @workout.workout_type, class: 'workout' %>
 <% end %>

@@ -1,6 +1,6 @@
 <h2> <%= @exercise.name %> </h2>
 
-<% if @exercise.user == @current_user %>
+<% if @current_user.present? && @exercise.user == @current_user %>
 <%= link_to 'Edit Exercise', edit_exercise_path(@exercise.id) %>
 |
 <%= link_to 'Delete Exercise', exercise_path(@exercise.id), method: 'delete' %>
