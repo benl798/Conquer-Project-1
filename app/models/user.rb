@@ -1,6 +1,7 @@
 class User < ApplicationRecord
 
   has_many :exercises
+  has_many :comments
 
   has_many :workouts #one-to-many
 

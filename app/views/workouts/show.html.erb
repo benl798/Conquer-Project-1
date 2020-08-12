@@ -6,24 +6,26 @@
 <%= link_to 'Delete Workout', workout_path(@workout.id), method: 'delete' %>
 <% end %>
 
-<p>
-  <strong>Name:</strong> <%= @workout.workout_type %>
-</p>
-
-<p>
-  <strong>Description:</strong> <%= @workout.description %>
-</p>
 
 <% @workout.exercises.each do |exercise| %>
-<h5><%= exercise.name %></h5>
 
-<h5>Image: <br><br><%= cl_image_tag exercise.image %></h5>
+  <h5><%= exercise.name %></h5>
 
-<h5>Description: <br><br><%= exercise.descript %></h5>
-<h5>Link: <br><br><a href="<%= exercise.link %>">gjgjkkd</a></h5>
+  <h5>Image: <br><br><%= cl_image_tag exercise.image %></h5>
+
+  <h5>Description: <br><br><%= exercise.descript %></h5>
+  <h5> <a href="<%= exercise.link %>">How to:</a></h5>
 
 
-<h5>Reps: <br><br><%= exercise.reps %></h5>
-<h5>Additional tips: <br><br><%= exercise.tips %></h5>
+  <h5>Reps: <br><br><%= exercise.reps %></h5>
+  <h5>Additional tips: <br><br><%= exercise.tips %></h5>
 
+
+
+<% end %>
+
+<% @workout.comments.each do |comment| %>
+<h5><%= comment.user.name %>:</h5>
+<p><%= comment.comment %></p>
+<hr>
 <% end %>

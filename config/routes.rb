@@ -2,11 +2,18 @@ Rails.application.routes.draw do
 
 
 
-  root to: 'users#index'
+  get 'comments/new'
+  get 'comments/create'
+  get 'comments/index'
+  get 'comments/show'
+  get 'comments/edit'
+  get 'comments/update'
+  get 'comments/destroy'
+  root to: 'session#home'
   # get '/users/new' => 'users#new'
   # post '/users' => 'users#create'
 
-  # get '/' => 'session#home'
+
 
   # Session routes:
   get  '/login' => 'session#new'     # login form
@@ -26,5 +33,8 @@ Rails.application.routes.draw do
 
   # Exercises CRUD
   resources :exercises
+
+  # Comments CRUD
+  resources :comments
 
 end

@@ -109,7 +109,6 @@ e5 = Exercise.create!(
   tips: 'Stairway to heaven boiiii'
 )
 
-
 puts "Created #{ Exercise.count } exercises:"
 
 # Workouts <-> Exercises many-to-many associations
@@ -119,3 +118,24 @@ w2.exercises << e1 << e2 << e3 << e4
 puts "Testing workout associations:"
 print "The workout '#{ w1.workout_type }' has exercises: "
 puts w1.exercises.pluck(:name).join(', ')
+
+
+Comment.destroy_all
+
+c1 = Comment.create!(
+comment: 'Best workout ever'
+)
+
+c2 = Comment.create!(
+comment: 'I got fat gains off this workout'
+)
+
+c3 = Comment.create!(
+comment: 'Feeling sore after this one!'
+)
+
+u1.comments << c1 << c2
+u2.comments << c3
+
+w1.comments << c1 << c3
+w2.comments << c2 
