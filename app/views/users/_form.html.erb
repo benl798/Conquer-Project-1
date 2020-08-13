@@ -1,19 +1,11 @@
-<% if @user.errors.full_messages.any? %>
-  <ul>
-    <% @user.errors.full_messages.each do |e| %>
-      <li><%= e %></li>
-    <% end %>
-  </ul>
-<% end %>
-
 <%= form_for @user, html: {multipart: true} do |f| %>
 
 <%= f.label :name %><br>
-  <%= f.text_field :name %>
+  <%= f.text_field :name, required: true %>
   <br>
 
   <%= f.label :dob %><br>
-  <%= f.date_field :dob %>
+  <%= f.date_field :dob, required: true %>
   <br>
 
   <%= f.label :image, 'Image URL' %><br>
@@ -24,10 +16,6 @@
 
   <%= f.label :sex %><br>
   <%= f.text_field :sex %>
-  <br>
-
-  <%= f.label :age %><br>
-  <%= f.text_field :age %>
   <br>
 
   <%= f.label :height %><br>
@@ -51,17 +39,12 @@
   <br>
 
   <%= f.label :email %><br>
-  <%= f.text_field :email %>
+  <%= f.text_field :email, required: true %>
   <br>
 
   <%= f.label :password %><br>
-  <%= f.password_field :password %>
+  <%= f.password_field :password, required: true %>
   <br>
-
-
-
-
-
   <br>
   <br>
 

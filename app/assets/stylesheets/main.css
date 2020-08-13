@@ -8,3 +8,9 @@ body {
 a {
   color: rgb(215, 175, 96);
 }
+
+img {
+  border-radius: 50%;
+  max-width: 400px;
+  max-height: 400px;
+}

@@ -1,31 +1,23 @@
 <h2> <%= @workout.workout_type %> </h2>
 
 <% if @current_user.present? && @workout.user_id == @current_user.id %>
-<%= link_to 'Edit Workout', edit_workout_path(@workout.id) %>
-|
-<%= link_to 'Delete Workout', workout_path(@workout.id), method: 'delete' %>
+  <%= link_to 'Edit Workout', edit_workout_path(@workout.id) %>
+  |
+  <%= link_to 'Delete Workout', workout_path(@workout.id), method: 'delete' %>
 <% end %>
 
 
 <% @workout.exercises.each do |exercise| %>
-
   <h5><%= exercise.name %></h5>
-
   <h5>Image: <br><br><%= cl_image_tag exercise.image %></h5>
-
   <h5>Description: <br><br><%= exercise.descript %></h5>
   <h5> <a href="<%= exercise.link %>">How to:</a></h5>
-
-
   <h5>Reps: <br><br><%= exercise.reps %></h5>
   <h5>Additional tips: <br><br><%= exercise.tips %></h5>
-
-
-
 <% end %>
 
 <% @workout.comments.each do |comment| %>
-<h5><%= comment.user.name %>:</h5>
-<p><%= comment.comment %></p>
-<hr>
+  <h5><%= comment.user.name %>:</h5>
+  <p><%= comment.comment %></p>
+  <hr>
 <% end %>

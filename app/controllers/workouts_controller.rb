@@ -1,9 +1,10 @@
 class WorkoutsController < ApplicationController
 
-before_action :check_if_logged_in 
+before_action :check_if_logged_in
   # CREATE ############################################
   def new
     @workout = Workout.new
+    @exercises = Exercise.all
   end
 
   def create

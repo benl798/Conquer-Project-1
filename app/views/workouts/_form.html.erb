@@ -11,10 +11,16 @@
   <%= f.cl_image_upload :image %>
   <br>
 
+
+  <% @exercises.each do |exercise| %>
+  <li>
+    <input type="checkbox" name="" value="1"><%= link_to exercise.name, exercise_path(exercise.id) %></input>
+  </li>
+  <% end %>
+
 <%= f.label :description %><br>
   <%= f.text_field :description %>
   <br>
-
 
   <br>
   <br>

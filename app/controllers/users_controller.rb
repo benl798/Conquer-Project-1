@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :check_if_logged_in, except: [:new]
+  # before_action :check_if_logged_in, except: [:new]
   # CREATE ###########################
 
     # 1. Blank form
@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 
     # 2. Form submit, create, redirect
     def create
-      @user = User.new user_params
+      @user = User.create user_params
 
       # Handle upload, if file was uploaded
       if params[:file].present?
@@ -23,11 +23,13 @@ class UsersController < ApplicationController
       # Check whether the above create was successful i.e created a row in the users table i.e the object has an ID or if it failed due to a data validation error
       if @user.persisted?
         session[:user_id] = @user.id # log in the newly created account automatically!
-        redirect_to users_path
+        redirect_to workouts_path
       else
         # redirect_to new_user_path
         # show the form again directly, no re-direct. This lets us use the failed @user create object in our template form_for, which gives us access to the validation error messages, and also causes the already submitted fields of the form to be re-populated for the user
-        render :new
+        # render :new
+        redirect_to workouts_path
+
       end
 
 
@@ -56,8 +58,18 @@ class UsersController < ApplicationController
     def update
       user = User.find params[:id]
 
+      if params[:file].present?
+        req = Cloudinary::Uploader.upload(params[:file])
+        user.image = req["public_id"]
+      end
+     # We're using update_attributes here because we don't want to make a PUT request
+     # (.update to update the attributes in animal_params, then .save to update the
+     # image)
+     user.update_attributes(user_params)
+     user.save
+
       # Use the same strong params method we used in the create action, for this update:
-      user.update user_params
+      # user.update user_params
 
       # No template for updates; redirect to the show page (using the path helper)
       redirect_to( user_path(params[:id]) )
@@ -77,7 +89,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-     params.require( :user ).permit( :name, :email, :password, :dob, :height, :sex, :age, :weight, :target_weight, :bio, :goal )
+     params.require( :user ).permit( :name, :email, :password, :dob, :height, :image, :sex, :weight, :target_weight, :bio, :goal )
     end
 
 

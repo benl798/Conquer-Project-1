@@ -138,4 +138,4 @@ u1.comments << c1 << c2
 u2.comments << c3
 
 w1.comments << c1 << c3
-w2.comments << c2 
+w2.comments << c2
