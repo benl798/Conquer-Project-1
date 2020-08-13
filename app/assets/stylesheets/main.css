@@ -1,4 +1,4 @@
-
+/*
 body {
   background-color: rgb(65, 65, 65);
   color: rgb(228, 228, 228);
@@ -10,11 +10,18 @@ a {
 }
 
 img {
-  border-radius: 50%;
+  border-radius: 15%;
+  min-width: 400px;
+  min-height: 500px;
   max-width: 400px;
-  max-height: 400px;
+  max-height: 500px;
   -webkit-filter: grayscale(100%);
   filter: grayscale(100%);
+}
+
+img:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
 }
 
 .topnav {
@@ -46,4 +53,52 @@ img {
 
 .name {
   left: 1000px;
+} */
+
+#home_page {
+  background-image: url("conquer.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body, html {
+  margin: 0;
+}
+
+
+.up {
+  top: 82%;
+}
+
+.in {
+  top: 69%;
+}
+
+.in, .up {
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 60px;
+  border-style: solid;
+  border-width: 5px;
+  border-color: rgb(215, 175, 96);
+  line-height: 60px;
+  padding: 5px;
+  transition-duration: 0.4s;
+}
+
+.in:hover, .up:hover {
+   background-color: rgba(136,136,136,0.8);
+}
+
+
+
+.in a, .up a {
+  color: rgb(215, 175, 96);
+  text-decoration: none;
+  font-size: 50px;
 }

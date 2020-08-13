@@ -7,5 +7,6 @@ class Workout < ApplicationRecord
   has_many :comments
 
   validates :workout_type, presence:true
+  validates :image, presence:true
 
 end

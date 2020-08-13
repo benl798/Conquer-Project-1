@@ -24,7 +24,11 @@ before_action :check_if_logged_in
     if @workout.persisted?
 
       #because the workout was successfully saved, we can now add the selected exercises as associations
-      @workout.exercises << Exercise.find( params[:exercises] )
+
+      if params[:exercises].present?
+        @workout.exercises << Exercise.find( params[:exercises] )
+      end
+
       if params[:exercise_name].present?
         # If the user has filled out the exercise part of the form, create that new exercise and associate it with this new workout
         exercise = Exercise.create name: params[:exercise_name], reps: params[:exercise_reps], descript: params[:exercise_descript], image: params[:exercise_image], link: params[:exercise_link], tips: params[:exercise_tips]
@@ -72,6 +76,14 @@ before_action :check_if_logged_in
   def destroy
     Workout.destroy params[:id]
     redirect_to workouts_path
+  end
+
+
+  def add_comment
+    workout = Workout.find params[:id]
+    comment = Comment.create!(comment: params[:comment], user_id: @current_user.id)
+    workout.comments << comment
+    redirect_to workout_path(workout)
   end
 
   private

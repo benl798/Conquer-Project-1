@@ -21,3 +21,8 @@
   <p><%= comment.comment %></p>
   <hr>
 <% end %>
+
+<%= form_tag url_for(action: 'add_comment', method: "post") do %>
+  <%= text_field_tag :comment, nil, placeholder: 'Leave a comment...' %>
+  <%= submit_tag 'Post' %>
+<% end %>

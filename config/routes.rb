@@ -14,7 +14,7 @@ Rails.application.routes.draw do
 
   delete '/login' => 'session#destroy'  # logout, i.e. delete session for this user
 
-
+  post '/workouts/:id' => 'workouts#add_comment'
 
   # Users CRUD
   resources :users

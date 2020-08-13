@@ -3,6 +3,9 @@ class CommentsController < ApplicationController
   end
 
   def create
+    @workout = Workout.find(params[:workout_id])
+        @comment = @workout.comments.create(comment_params)
+        redirect_to workout_path(@workout)
   end
 
   def index

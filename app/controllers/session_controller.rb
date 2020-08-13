@@ -2,6 +2,10 @@ class SessionController < ApplicationController
   def new
   end
 
+  def home
+    
+  end
+
   def create
 
     # 1. Check if the email address entered is actually in the 'users' table
