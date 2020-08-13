@@ -1,26 +1,66 @@
 <%= form_for @workout, html: {multipart: true} do |f| %>
 
-<%= f.label :workout_type %><br>
+<% if @workout.errors.full_messages.any? %>
+  <ul>
+    <% @workout.errors.full_messages.each do |e| %>
+      <li><%= e %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= f.label :workout_type, 'Name:' %><br>
   <%= f.text_field :workout_type %>
   <br>
 
-<%= f.label :image, 'Image URL' %><br>
-  <!--<%= f.text_field :image %>-->
-  <br>
+  <%= f.label :description, 'Description:' %><br>
+    <%= f.text_field :description %>
+    <br>
 
+  <%= f.label :image, 'Image:' %><br>
   <%= f.cl_image_upload :image %>
   <br>
 
 
+  <h4>Add an existing exercise:</h4>
   <% @exercises.each do |exercise| %>
-  <li>
-    <input type="checkbox" name="" value="1"><%= link_to exercise.name, exercise_path(exercise.id) %></input>
-  </li>
+    <%= label_tag do %>
+      <%= check_box_tag 'exercises[]', exercise.id %>
+      <%= exercise.name %>
+    <% end %>
+    (<%= link_to 'Preview', exercise_path(exercise.id) %>)
+    <br>
   <% end %>
 
-<%= f.label :description %><br>
-  <%= f.text_field :description %>
-  <br>
+  <h3>Add a new exercise</h3>
+    <%= label_tag :exercise_name, 'Name:', class: "name" %>
+    <%= text_field_tag :exercise_name %>
+    <br>
+
+    <%= label_tag :exercise_descript, 'Description:' %>
+    <%= text_field_tag :exercise_descript %>
+    <br>
+
+    <%= label_tag :exercise_image, 'Image:' %><br>
+    <%= text_field_tag :exercise_image %>
+    <br>
+    <br>
+
+    <%= label_tag :exercise_reps, 'Reps:' %>
+    <%= text_field_tag :exercise_reps %>
+    <br>
+    <br>
+
+    <%= label_tag :exercise_link, 'Link:' %>
+    <%= text_field_tag :exercise_link %>
+    <br>
+    <br>
+
+    <%= label_tag :exercise_tips, 'Tips:' %>
+    <%= text_field_tag :exercise_tips %>
+    <br>
+    <br>
+
+
 
   <br>
   <br>

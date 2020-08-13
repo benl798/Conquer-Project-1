@@ -8,7 +8,6 @@ before_action :check_if_logged_in
   end
 
   def create
-
     @workout = Workout.new workout_params
 
     # Handle upload, if file was uploaded
@@ -22,7 +21,24 @@ before_action :check_if_logged_in
 
     @workout.save
 
-    redirect_to workouts_path
+    if @workout.persisted?
+
+      #because the workout was successfully saved, we can now add the selected exercises as associations
+      @workout.exercises << Exercise.find( params[:exercises] )
+      if params[:exercise_name].present?
+        # If the user has filled out the exercise part of the form, create that new exercise and associate it with this new workout
+        exercise = Exercise.create name: params[:exercise_name], reps: params[:exercise_reps], descript: params[:exercise_descript], image: params[:exercise_image], link: params[:exercise_link], tips: params[:exercise_tips]
+        @workout.exercises << exercise
+      end
+      redirect_to workouts_path
+    else
+      # redirect_to new_user_path
+      # show the form again directly, no re-direct. This lets us use the failed @user create object in our template form_for, which gives us access to the validation error messages, and also causes the already submitted fields of the form to be re-populated for the user
+      @exercises = Exercise.all
+      render :new
+    end
+
+
 
 
   end
@@ -40,6 +56,7 @@ before_action :check_if_logged_in
 
   def edit
     @workout = Workout.find params[:id]
+    @exercises = Exercise.all
     redirect_to exercises_path unless @workout.user == @current_user
   end
 

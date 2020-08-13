@@ -5,4 +5,7 @@ class Workout < ApplicationRecord
 
   belongs_to :user, optional: true
   has_many :comments
+
+  validates :workout_type, presence:true
+
 end

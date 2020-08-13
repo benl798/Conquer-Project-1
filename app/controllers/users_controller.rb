@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :check_if_logged_in, except: [:new]
+  before_action :check_if_logged_in, except: [:new, :create]
   # CREATE ###########################
 
     # 1. Blank form
@@ -10,15 +10,14 @@ class UsersController < ApplicationController
     # 2. Form submit, create, redirect
     def create
       @user = User.create user_params
-
       # Handle upload, if file was uploaded
       if params[:file].present?
         # Actually forward uploaded file on to Cloudinary server
         response = Cloudinary::Uploader.upload params[:file]
         @user.image = response['public_id']
+        @user.save
       end
 
-      @user.save
 
       # Check whether the above create was successful i.e created a row in the users table i.e the object has an ID or if it failed due to a data validation error
       if @user.persisted?
@@ -27,9 +26,7 @@ class UsersController < ApplicationController
       else
         # redirect_to new_user_path
         # show the form again directly, no re-direct. This lets us use the failed @user create object in our template form_for, which gives us access to the validation error messages, and also causes the already submitted fields of the form to be re-populated for the user
-        # render :new
-        redirect_to workouts_path
-
+        render :new
       end
 
 
@@ -89,7 +86,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-     params.require( :user ).permit( :name, :email, :password, :dob, :height, :image, :sex, :weight, :target_weight, :bio, :goal )
+     params.require( :user ).permit( :name, :email, :password, :dob, :height, :image, :sex, :weight, :target_weight, :bio, :goal, :password_confirmation )
     end
 
 
