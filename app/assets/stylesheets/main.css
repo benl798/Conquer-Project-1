@@ -199,6 +199,10 @@ body {
   background-size: cover;
 }
 
+#edit_user a {
+  color: rgb(215, 175, 96);
+}
+
 .index_workouts {
   width: 400px;
 }
