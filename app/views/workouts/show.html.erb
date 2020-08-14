@@ -1,3 +1,4 @@
+<div class="content">
 <h2> <%= @workout.workout_type %> </h2>
 
 <% if @current_user.present? && @workout.user_id == @current_user.id %>
@@ -15,3 +16,4 @@
   <h5>Reps: <br><br><%= exercise.reps %></h5>
   <h5>Additional tips: <br><br><%= exercise.tips %></h5>
 <% end %>
+</div>

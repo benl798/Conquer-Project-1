@@ -16,6 +16,13 @@ a {
   color: rgb(215, 175, 96);
 }
 
+img {
+  max-width: 500px;
+  min-width: 400px;
+  max-height: 500px;
+  min-height: 400px;
+}
+
 
 .topnav {
   overflow: hidden;
@@ -215,7 +222,12 @@ body {
 }
 
 .workout {
-  margin-top: 150px;
+  margin-top: 200px;
+  margin-left: 200px;
 
+}
 
+.index_workouts {
+  margin-top: 100px;
+  margin-left: -150px;
 }
