@@ -1,3 +1,4 @@
+<div class="content">
 <%= form_for @workout, html: {multipart: true} do |f| %>
 
 <% if @workout.errors.full_messages.any? %>
@@ -68,3 +69,4 @@
   <%= f.submit %>
 
 <% end %>
+</div>

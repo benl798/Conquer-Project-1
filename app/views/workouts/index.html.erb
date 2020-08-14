@@ -1,9 +1,15 @@
-<h2>All Workouts</h2>
-<ul>
+<div id="workout_page">
+  <div class="final">
+<div class="index_workouts">
+  <h2>All Workouts</h2>
+</div>
+<div>
   <% @workouts.each do |workout| %>
     <%# link_to workout.workout_type, workout_path(workout.id) %>
     <% if workout.image.present? %>
-      <%= link_to cl_image_tag(workout.image), workout_path(workout.id), alt: workout.workout_type, class: 'workout' %>
+      <%= link_to cl_image_tag(workout.image, :class => "workout" ), workout_path(workout.id), alt: workout.workout_type %>
     <% end %>
   <% end %>
-</ul>
+</div>
+</div>
+</div>

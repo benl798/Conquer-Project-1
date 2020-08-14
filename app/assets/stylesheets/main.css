@@ -1,37 +1,30 @@
-/*
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 body {
-  background-color: rgb(65, 65, 65);
+  background-color: #282727;
   color: rgb(228, 228, 228);
-  font-family: Garamond, serif;
+  font-family: 'Bebas Neue', cursive;
+  margin: 0;
+
+}
+
+h2 {
+  margin: 0;
 }
 
 a {
   color: rgb(215, 175, 96);
 }
 
-img {
-  border-radius: 15%;
-  min-width: 400px;
-  min-height: 500px;
-  max-width: 400px;
-  max-height: 500px;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-}
-
-img:hover {
-  -webkit-filter: grayscale(0%);
-  filter: grayscale(0%);
-}
 
 .topnav {
   overflow: hidden;
-  background-color: #201f1f;
+  background-color: black;
 }
 
 .topnav a {
   float: left;
-  color: #f2f2f2;
+  color: rgb(215, 175, 96);
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
@@ -39,23 +32,20 @@ img:hover {
 }
 
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: rgb(215, 175, 96);
   color: black;
 }
 
-.search {
-  background-color: #4CAF50;
-  color: white;
-}
+
 .topnav-right {
   float: right;
 }
 
 .name {
   left: 1000px;
-} */
+}
 
-#home_page {
+body {
   background-image: url("conquer.jpg");
   height: 100vh;
   background-position: center;
@@ -63,17 +53,41 @@ img:hover {
   background-size: cover;
 }
 
-body, html {
-  margin: 0;
+
+.form, .login_credentials, .edit_info {
+  color: rgb(215, 175, 96);
+  width: 200px;
+  font-size: 22px;
+}
+
+.new, .login_new, .user_name {
+  font-size: 25px;
+  width: 300px;
+  font-size: 27px;
+  color: rgb(215, 175, 96);
+}
+
+#sign_up_page label {
+  margin-top: 20px;
+  display: block;
+}
+
+
+#login_page {
+  background-image: url("workout.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 
 .up {
-  top: 82%;
+  top: 88%;
 }
 
 .in {
-  top: 69%;
+  top: 76%;
 }
 
 .in, .up {
@@ -95,10 +109,113 @@ body, html {
    background-color: rgba(136,136,136,0.8);
 }
 
-
-
 .in a, .up a {
-  color: rgb(215, 175, 96);
+  color: black;
   text-decoration: none;
   font-size: 50px;
+}
+
+.workout{
+  border-radius: 15%;
+  min-width: 400px;
+  min-height: 500px;
+  max-width: 400px;
+  max-height: 500px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  margin: 20px;
+}
+
+.workout:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+.index_workouts {
+  position: absolute;
+  top: 0px;
+  left: 50%;
+  right: 1140px;
+  width: 200px;
+  font-size: 50px;
+  color: rgb(215, 175, 96);
+}
+
+.submit_button, .login_button {
+  color: rgb(215, 175, 96);
+  font-family: 'Bebas Neue', cursive;
+  font-size: 20px;
+  border: 2px solid black;
+}
+
+
+
+.content {
+  display: block;
+  width: 90%;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.background {
+  display: block;
+  width: 95%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+
+.edit_info p {
+  width: 300px;
+  font-size: 25px;
+}
+
+.user {
+  max-width: 400px;
+  max-height: 500px;
+}
+
+#edit_page {
+  background-image: url("lion.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#workout_page {
+  background-image: url("weight.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.index_workouts {
+  width: 400px;
+}
+
+.workout{
+  border-radius: 5%;
+  min-width: 400px;
+  min-height: 500px;
+  max-width: 400px;
+  max-height: 500px;
+  -webkit-filter: grayscale(100%);
+  filter: grayscale(100%);
+  margin: 20px;
+  border: 8px solid rgb(215, 175, 96);
+
+}
+
+.workout:hover {
+  -webkit-filter: grayscale(0%);
+  filter: grayscale(0%);
+}
+
+.workout {
+  margin-top: 150px;
+
+
 }

@@ -19,7 +19,7 @@
     <nav class="topnav">
         <% if @current_user.present? %>
           <%# Hello, <%= @current_user.name %>
-          <%= link_to 'My Profile', user_path(@current_user), class: "search"%>
+          <%= link_to 'My Profile', user_path(@current_user)%>
           <%= link_to 'Workouts', workouts_path %>
           <%= link_to 'Create a new Workout ', new_workout_path %>
         <nav class="topnav-right">
@@ -34,16 +34,8 @@
     <% end %>
 
 
-
-
-      <nav>
-          <!--<%= link_to 'Exercise Home', exercises_path %>-->
-          <!--<%= link_to 'Add Exercise ', new_exercise_path %>-->
-      </nav>
-
-
     <%= yield %>
-
+  
 
   </body>
 </html>

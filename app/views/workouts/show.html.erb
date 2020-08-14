@@ -15,14 +15,3 @@
   <h5>Reps: <br><br><%= exercise.reps %></h5>
   <h5>Additional tips: <br><br><%= exercise.tips %></h5>
 <% end %>
-
-<% @workout.comments.each do |comment| %>
-  <h5><%= comment.user.name %>:</h5>
-  <p><%= comment.comment %></p>
-  <hr>
-<% end %>
-
-<%= form_tag url_for(action: 'add_comment', method: "post") do %>
-  <%= text_field_tag :comment, nil, placeholder: 'Leave a comment...' %>
-  <%= submit_tag 'Post' %>
-<% end %>
