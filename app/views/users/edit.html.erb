@@ -1,6 +1,7 @@
-<div id="edit_user">
+<div id="edit_details">
+<div class="form">
 <div class="content">
-<h2>Edit <%= @user.name %></h2>
+<h2>Edit your profile: <%= @user.name %></h2>
 
 <%= form_for @user, html: {multipart: true} do |f| %>
 
@@ -47,10 +48,11 @@
   <br>
 
   <br>
-  <br>
 
-  <%= f.submit %>
+
+  <%= f.submit class:'submit_button'%>
 
 <% end %>
 </div>
-<div id="edit_user">
+</div>
+</div>

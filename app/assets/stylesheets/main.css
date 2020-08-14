@@ -203,6 +203,14 @@ body {
   color: rgb(215, 175, 96);
 }
 
+#edit_details {
+  background-image: url("details.jpg");
+  height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 .index_workouts {
   width: 400px;
 }
