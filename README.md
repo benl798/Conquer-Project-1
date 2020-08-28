@@ -31,4 +31,4 @@ There are still a number of features and issues to resolve before this project i
 
  I would also like to enable users to add multiple different exercises to their own workout instead of the current case which limits them to creating only a single new exercise when creating their new workout.
 
- <img src="/Users/Ben/sei/projects/project1/app/assets/images/screenshot.png">
+ <img src="app/assets/images/screenshot.png">
