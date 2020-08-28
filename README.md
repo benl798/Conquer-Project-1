@@ -30,3 +30,5 @@ I used Ruby on Rails, CSS and HTML to build this application.
 There are still a number of features and issues to resolve before this project is complete. Immediately callouts include: Password requirement (extending the length), styling and CSS - ensuring the background doesn't carry across if the page content goes past one page and being more mindful of having text on top of images.
 
  I would also like to enable users to add multiple different exercises to their own workout instead of the current case which limits them to creating only a single new exercise when creating their new workout.
+
+ <img src="/Users/Ben/sei/projects/project1/app/assets/images/screenshot.png">
